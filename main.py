@@ -107,7 +107,7 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
-@app.post("/predict/")
+@app.post("/predict")
 async def predict(file: UploadFile = File(...)):
     if file.content_type not in ["image/jpeg", "image/png"]:
         raise HTTPException(status_code=400, detail="Invalid image format. Only JPEG and PNG are supported.")
@@ -129,3 +129,7 @@ async def predict(file: UploadFile = File(...)):
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error processing image: {e}")
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
