@@ -1,5 +1,5 @@
-app = "vehicle-classifier"  # choose your app name
-primary_region = "ams"  # choose your preferred region
+app = "vehicle-classifier"
+primary_region = "ams"
 
 [build]
   dockerfile = "Dockerfile"
